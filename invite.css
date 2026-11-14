@@ -338,13 +338,25 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   top: 0;
   width: 50%;
   height: 100%;
+  overflow: hidden;
   background-image: var(--photo);
-  background-repeat: no-repeat;
-  background-size: 200% 100%;
+  background-size: 0 0;
   transition: transform 1.55s cubic-bezier(0.6, 0, 0.2, 1) 0.18s;
 }
-.door.left { left: 0; background-position: left center; transform-origin: left center; }
-.door.right { right: 0; background-position: right center; transform-origin: right center; }
+.door.left { left: 0; transform-origin: left center; }
+.door.right { right: 0; transform-origin: right center; }
+.door::after, .col::after, .half::after, .strip::after, .pane::after {
+  content: "";
+  position: absolute;
+  background-image: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: var(--focus, center);
+  pointer-events: none;
+}
+.door::after, .col::after { top: 0; height: 100%; width: 200%; }
+.door.left::after, .col.left::after { left: 0; }
+.door.right::after, .col.right::after { right: 0; }
 .is-open .door.left { transform: rotateY(-108deg); }
 .is-open .door.right { transform: rotateY(108deg); }
 [data-invite="doors"] .photo-bg { filter: brightness(0.45); }
@@ -397,13 +409,16 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   left: 0;
   right: 0;
   height: 50%;
+  overflow: hidden;
   background-image: var(--photo);
-  background-repeat: no-repeat;
-  background-size: 100% 200%;
+  background-size: 0 0;
   transition: transform 1.15s cubic-bezier(0.7, 0, 0.2, 1) 0.12s;
 }
-.half.top { top: 0; background-position: center top; }
-.half.bottom { bottom: 0; background-position: center bottom; }
+.half::after { left: 0; width: 100%; height: 200%; }
+.half.top { top: 0; }
+.half.top::after { top: 0; }
+.half.bottom { bottom: 0; }
+.half.bottom::after { bottom: 0; }
 .is-open .half.top { transform: translateY(-100%); }
 .is-open .half.bottom { transform: translateY(100%); }
 [data-invite="lake"] .photo-bg { filter: brightness(0.5) saturate(1.1); }
@@ -430,17 +445,23 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   perspective: 1200px;
 }
 .strip {
+  position: relative;
   flex: 1;
+  overflow: hidden;
   background-image: var(--photo);
-  background-repeat: no-repeat;
-  background-size: 100% 400%;
+  background-size: 0 0;
   transform-origin: top center;
   transition: transform 0.85s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.7s ease;
 }
-.strip:nth-child(1) { background-position: center 0%; transition-delay: 0.05s; }
-.strip:nth-child(2) { background-position: center 33%; transition-delay: 0.16s; }
-.strip:nth-child(3) { background-position: center 66%; transition-delay: 0.28s; }
-.strip:nth-child(4) { background-position: center 100%; transition-delay: 0.4s; }
+.strip::after { left: 0; width: 100%; height: 400%; }
+.strip:nth-child(1) { transition-delay: 0.05s; }
+.strip:nth-child(1)::after { top: 0; }
+.strip:nth-child(2) { transition-delay: 0.16s; }
+.strip:nth-child(2)::after { top: -100%; }
+.strip:nth-child(3) { transition-delay: 0.28s; }
+.strip:nth-child(3)::after { top: -200%; }
+.strip:nth-child(4) { transition-delay: 0.4s; }
+.strip:nth-child(4)::after { top: -300%; }
 .is-open .strip { transform: rotateX(78deg); opacity: 0; }
 [data-invite="stairs"] .wax {
   border-radius: 0;
@@ -468,13 +489,13 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   top: 0;
   bottom: 0;
   width: 50%;
+  overflow: hidden;
   background-image: var(--photo);
-  background-repeat: no-repeat;
-  background-size: 200% 100%;
+  background-size: 0 0;
   transition: transform 1.15s cubic-bezier(0.7, 0, 0.2, 1) 0.16s;
 }
-.col.left { left: 0; background-position: left center; }
-.col.right { right: 0; background-position: right center; }
+.col.left { left: 0; }
+.col.right { right: 0; }
 .is-open .col.left { transform: translateX(-105%); }
 .is-open .col.right { transform: translateX(105%); }
 [data-invite="city"] .wax { width: 74px; height: 102px; border-radius: 37px 37px 14px 14px; }
@@ -502,16 +523,22 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   perspective: 1400px;
 }
 .pane {
+  position: relative;
+  overflow: hidden;
   background-image: var(--photo);
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
+  background-size: 0 0;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
   transition: transform 1.05s cubic-bezier(0.6, 0, 0.2, 1), filter 0.8s ease;
 }
-.pane:nth-child(1) { background-position: left top; transform-origin: left center; transition-delay: 0.05s; }
-.pane:nth-child(2) { background-position: right top; transform-origin: right center; transition-delay: 0.12s; }
-.pane:nth-child(3) { background-position: left bottom; transform-origin: left center; transition-delay: 0.2s; }
-.pane:nth-child(4) { background-position: right bottom; transform-origin: right center; transition-delay: 0.28s; }
+.pane::after { width: 200%; height: 200%; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55); }
+.pane:nth-child(1) { transform-origin: left center; transition-delay: 0.05s; }
+.pane:nth-child(1)::after { left: 0; top: 0; }
+.pane:nth-child(2) { transform-origin: right center; transition-delay: 0.12s; }
+.pane:nth-child(2)::after { right: 0; top: 0; }
+.pane:nth-child(3) { transform-origin: left center; transition-delay: 0.2s; }
+.pane:nth-child(3)::after { left: 0; bottom: 0; }
+.pane:nth-child(4) { transform-origin: right center; transition-delay: 0.28s; }
+.pane:nth-child(4)::after { right: 0; bottom: 0; }
 .is-open .pane:nth-child(odd) { transform: rotateY(-82deg); }
 .is-open .pane:nth-child(even) { transform: rotateY(82deg); }
 .is-open .pane { filter: brightness(1.05); }
@@ -543,7 +570,7 @@ html.reduce .photo-bg { filter: brightness(0.55) saturate(1.05); }
   box-shadow: 0 0 0 12px rgba(255, 247, 242, 0.92), 0 30px 70px rgba(0, 0, 0, 0.35);
   perspective: 1400px;
 }
-.arch .door { background-size: 200% 100%; }
+.arch .door { background-size: 0 0; }
 .is-open .arch .door.left { transform: translateX(-102%); }
 .is-open .arch .door.right { transform: translateX(102%); }
 [data-invite="arch"] .seal-wrap { top: 58%; }
