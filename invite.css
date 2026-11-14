@@ -27,6 +27,7 @@ button { font: inherit; }
   overflow: clip;
   background: var(--stage);
 }
+.stage.is-open { overflow: auto; }
 .photo-bg {
   position: absolute;
   inset: 0;
@@ -160,7 +161,9 @@ button { font: inherit; }
 .is-open .card {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  top: 4vh;
+  margin-bottom: 6vh;
+  transform: translate(-50%, 0) scale(1);
   transition:
     opacity 0.85s ease var(--reveal),
     transform 1s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal);
@@ -219,6 +222,21 @@ html.reduce .rule { animation: none; }
   line-height: 1.35;
 }
 .where { margin-top: 8px; color: var(--muted); font-size: 20px; }
+.verse {
+  margin: 16px 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.detail {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+.detail.dress { color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; }
 .note {
   margin: 22px 0 0;
   font-size: 12px;
