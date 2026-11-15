@@ -7,10 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../invite.css?v=8">
-  <link rel="stylesheet" href="../luxury.css?v=8">
+  <link rel="stylesheet" href="../invite.css?v=11">
+  <link rel="stylesheet" href="../luxury.css?v=9">
   <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("reduce");</script>
-  <noscript><style>.card{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}.opener{display:none}</style></noscript>
+  <noscript><style>.card{opacity:1;pointer-events:auto;position:relative;left:auto;top:auto;transform:none;margin:6vh auto 0}.opener{display:none}.folio{display:block}.panel{opacity:1;transform:none}.scratch canvas{display:none}</style></noscript>
 </head>
 <body>
   <main class="stage" data-invite="roma" data-tone="forest" style="--portrait:url('04-perle/couple.jpg')">
@@ -31,7 +31,68 @@
       <p class="craft">Brief</p>
       <p class="note">Namen, Tag und Ort sind Beispiele. Das Handwerk ist eigenes, nach Suiten über 100 Euro.</p>
     </article>
+    <div class="folio" data-when="2027-07-11T16:30">
+      <section class="panel hero in" aria-label="Bis zum Abend">
+        <p class="kicker">Bis zum Abend</p>
+        <p class="count">
+          <span data-unit="days"><b>0</b><small>Tage</small></span>
+          <span data-unit="hours"><b>0</b><small>Stunden</small></span>
+          <span data-unit="minutes"><b>0</b><small>Minuten</small></span>
+        </p>
+        <p class="gesture">Nach oben wischen <i></i></p>
+      </section>
+      <section class="panel history">
+        <p class="kicker">Geschichte</p>
+        <h2>Wie es anfing</h2>
+        <p class="story">Bea und Orth sind in einer Buchhandlung zwischen zwei Regalen stehen geblieben. Auf dem Weingut zählt der Abend mehr als die Uhr. Sie haben nicht lange überlegt. Sie haben euch dazugenommen.</p>
+      </section>
+      <section class="panel dresscode">
+        <p class="kicker">Kleider</p>
+        <h2>Was ihr tragt</h2>
+        <p class="dress-line">Waldgrün und eine Blume am Knopf</p>
+        <p class="practical">Schuhe, die den Boden und den Abend können.</p>
+        <p class="wear">Ihr müsst nichts Neues kaufen. Kommt so, dass ihr bis zum letzten Lied bleibt.</p>
+      </section>
+      <section class="panel surprise">
+        <p class="kicker">Überraschung</p>
+        <h2>Unter dem Gold</h2>
+        <p class="lead">Eine Geste mit dem Finger. Das Gold gibt den Satz frei.</p>
+        <div class="scratch">
+          <p class="secret">Bea und Orth: Zum Auftakt spielt nur ein Klavier, ohne Worte.</p>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+        <button class="reveal-secret" type="button">Lieber aufdecken</button>
+      </section>
+      <section class="panel rsvp">
+        <p class="kicker">Antwort</p>
+        <h2>Kommt ihr?</h2>
+        <div class="choices">
+          <button type="button" data-answer="yes">Wir kommen</button>
+          <button type="button" data-answer="no">Wir können nicht</button>
+        </div>
+        <div class="party" hidden>
+          <p class="ask">Wie viele Personen kommen? Jede mit Namen.</p>
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="Eine Person weniger">−</button>
+            <b data-amount>1</b>
+            <button type="button" data-step="1" aria-label="Eine Person mehr">+</button>
+          </div>
+          <div class="names"></div>
+        </div>
+        <p class="tally" aria-live="polite"><b data-live-count>—</b><span data-live-label>Noch keine Antwort</span></p>
+        <p class="hint">Nur auf diesem Gerät gespeichert. Keine E-Mail.</p>
+      </section>
+      <footer class="panel foot">
+        <p class="kicker">Dieser Abend</p>
+        <p class="where-line">Auf dem Weingut</p>
+        <p class="until" data-until>Noch ein paar Tage.</p>
+        <p class="coming">Noch keine Antwort auf diesem Gerät.</p>
+        <p class="note">Namen, Tag und Ort sind Beispiele.</p>
+      </footer>
+      <p class="nudge">Nach oben wischen <i></i></p>
+    </div>
+
   </main>
-  <script src="../invite.js"></script>
+  <script src="../invite.js?v=12"></script>
 </body>
 </html>
