@@ -86,27 +86,17 @@
     canvas.height = Math.round(h * dpr);
     ctx = canvas.getContext("2d");
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var g = ctx.createLinearGradient(0, 0, w, h);
-    g.addColorStop(0, "#f3e6c4");
-    g.addColorStop(0.45, "#c6a15a");
-    g.addColorStop(1, "#8c6232");
+    var coat = getComputedStyle(stage).getPropertyValue("--wax").trim() || "#8c6232";
+    var inkOn = getComputedStyle(stage).getPropertyValue("--wax-ink").trim() || "#fff8ef";
+    var display = getComputedStyle(stage).getPropertyValue("--display").trim() || "Georgia, serif";
     ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = g;
+    ctx.fillStyle = coat;
     ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = "rgba(255, 248, 236, 0.35)";
-    ctx.lineWidth = 1;
-    var y;
-    for (y = 14; y < h; y += 18) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(w, y);
-      ctx.stroke();
-    }
-    ctx.fillStyle = "rgba(255, 248, 236, 0.92)";
-    ctx.font = "500 13px Outfit, sans-serif";
-    ctx.textAlign = "center";
+    ctx.fillStyle = inkOn;
+    ctx.font = "italic 22px " + display;
+    ctx.textAlign = "left";
     ctx.textBaseline = "middle";
-    ctx.fillText("Kratzt das Gold weg", w / 2, h / 2);
+    ctx.fillText("Kratzt die Schicht weg", 22, h / 2);
   }
 
   function scratchAt(e) {
@@ -202,7 +192,7 @@
     }
     if (answer === "yes") {
       countNode.textContent = String(list.length);
-      labelNode.textContent = list.length === 1 ? "Person kommt" : "Personen kommen";
+      labelNode.textContent = list.length === 1 ? " Person kommt" : " Personen kommen";
       comingNode.textContent = peopleLine(list);
       return;
     }
@@ -275,37 +265,6 @@
     namesBox.addEventListener("input", function () { saveAnswer("yes"); });
   }
 
-  var watching = false;
-  function watchPanels() {
-    if (watching) return;
-    watching = true;
-    var panels = [].slice.call(document.querySelectorAll(".folio .panel"));
-    if (reduce) {
-      panels.forEach(function (panel) { panel.classList.add("in"); });
-      return;
-    }
-    if (!("IntersectionObserver" in window)) {
-      panels.forEach(function (panel) { panel.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.classList.add("in");
-      });
-    }, { root: stage, threshold: 0.22 });
-    panels.forEach(function (panel) { io.observe(panel); });
-  }
-
-  var bar = document.createElement("div");
-  bar.className = "progress";
-  document.body.appendChild(bar);
-  stage.addEventListener("scroll", function () {
-    var max = stage.scrollHeight - stage.clientHeight;
-    var p = max > 0 ? stage.scrollTop / max : 0;
-    bar.style.transform = "scaleX(" + p + ")";
-    stage.classList.toggle("is-scrolled", stage.scrollTop > 28);
-  }, { passive: true });
-
   var sx = 0;
   var sy = 0;
   var tracking = false;
@@ -351,7 +310,6 @@
     seal.setAttribute("aria-expanded", "true");
     window.requestAnimationFrame(function () {
       drawFoil();
-      watchPanels();
     });
   }
 

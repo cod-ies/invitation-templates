@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../invite.css?v=11">
-  <link rel="stylesheet" href="../luxury.css?v=9">
+  <link rel="stylesheet" href="../invite.css?v=15">
+  <link rel="stylesheet" href="../luxury.css?v=14">
   <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("reduce");</script>
   <noscript><style>.card{opacity:1;pointer-events:auto;position:relative;left:auto;top:auto;transform:none;margin:6vh auto 0}.opener{display:none}.folio{display:block}.panel{opacity:1;transform:none}.scratch canvas{display:none}</style></noscript>
 </head>
@@ -20,7 +20,7 @@
     <article class="card">
       <p class="eyebrow">Vorlage · Farbschnitt</p>
       <img class="medallion" src="../05-seeufer/couple.jpg" alt="">
-      <p class="invite-line">ihr seid eingeladen</p>
+      <p class="invite-line">Ihr seid eingeladen</p>
       <h1>Gero<i>&amp;</i>Grote</h1>
       <div class="rule"></div>
       <p class="when">Samstag, 8. August 2027<br>17:00 Uhr</p>
@@ -32,67 +32,49 @@
       <p class="note">Namen, Tag und Ort sind Beispiele. Das Handwerk ist eigenes, nach Suiten über 100 Euro.</p>
     </article>
     <div class="folio" data-when="2027-08-08T17:00">
-      <section class="panel hero in" aria-label="Bis zum Abend">
-        <p class="kicker">Bis zum Abend</p>
-        <p class="count">
-          <span data-unit="days"><b>0</b><small>Tage</small></span>
-          <span data-unit="hours"><b>0</b><small>Stunden</small></span>
-          <span data-unit="minutes"><b>0</b><small>Minuten</small></span>
-        </p>
-        <p class="gesture">Nach oben wischen <i></i></p>
-      </section>
-      <section class="panel history">
-        <p class="kicker">Geschichte</p>
-        <h2>Wie es anfing</h2>
-        <p class="story">Gero und Grote sind sich im Treppenhaus begegnet und dann nicht weitergegangen. Das Stadthaus hat hohe Fenster und einen stillen Flur. Der Ort ist schön. Schön wird er erst, wenn ihr da seid.</p>
-      </section>
-      <section class="panel dresscode">
-        <p class="kicker">Kleider</p>
-        <h2>Was ihr tragt</h2>
-        <p class="dress-line">Tiefgrün, Samt nur wenn ihr wollt</p>
-        <p class="practical">Stadthell, nicht steif. Eine Jacke für den Flur.</p>
-        <p class="wear">Ihr müsst nichts Neues kaufen. Kommt so, dass ihr bis zum letzten Lied bleibt.</p>
-      </section>
-      <section class="panel surprise">
-        <p class="kicker">Überraschung</p>
-        <h2>Unter dem Gold</h2>
-        <p class="lead">Eine Geste mit dem Finger. Das Gold gibt den Satz frei.</p>
-        <div class="scratch">
-          <p class="secret">Gero und Grote: Zum Abschied liegt etwas in der Hand, das nach dem Tag duftet.</p>
-          <canvas aria-hidden="true"></canvas>
-        </div>
-        <button class="reveal-secret" type="button">Lieber aufdecken</button>
-      </section>
-      <section class="panel rsvp">
-        <p class="kicker">Antwort</p>
-        <h2>Kommt ihr?</h2>
-        <div class="choices">
-          <button type="button" data-answer="yes">Wir kommen</button>
-          <button type="button" data-answer="no">Wir können nicht</button>
-        </div>
-        <div class="party" hidden>
-          <p class="ask">Wie viele Personen kommen? Jede mit Namen.</p>
-          <div class="stepper">
-            <button type="button" data-step="-1" aria-label="Eine Person weniger">−</button>
-            <b data-amount>1</b>
-            <button type="button" data-step="1" aria-label="Eine Person mehr">+</button>
-          </div>
-          <div class="names"></div>
-        </div>
-        <p class="tally" aria-live="polite"><b data-live-count>—</b><span data-live-label>Noch keine Antwort</span></p>
-        <p class="hint">Nur auf diesem Gerät gespeichert. Keine E-Mail.</p>
-      </section>
-      <footer class="panel foot">
-        <p class="kicker">Dieser Abend</p>
-        <p class="where-line">Im Stadthaus</p>
+      <article class="letter">
         <p class="until" data-until>Noch ein paar Tage.</p>
-        <p class="coming">Noch keine Antwort auf diesem Gerät.</p>
+        <section class="panel history">
+          <h2>Wie es anfing</h2>
+          <p class="story">Gero und Grote sind sich im Treppenhaus begegnet und dann nicht weitergegangen. Das Stadthaus hat hohe Fenster und einen stillen Flur. Der Ort ist schön. Schön wird er erst, wenn ihr da seid.</p>
+        </section>
+        <section class="panel dresscode">
+          <h2>Was ihr tragt</h2>
+          <p class="dress-line">Tiefgrün, Samt nur wenn ihr wollt</p>
+          <p class="practical">Stadthell, nicht steif. Eine Jacke für den Flur.</p>
+          <p class="wear">Ihr müsst nichts Neues kaufen. Kommt so, dass ihr bis zum letzten Lied bleibt.</p>
+        </section>
+        <section class="panel surprise">
+          <h2>Ein Satz für euch</h2>
+          <div class="scratch">
+            <p class="secret">Gero und Grote: Zum Abschied liegt etwas in der Hand, das nach dem Tag duftet.</p>
+            <canvas aria-hidden="true"></canvas>
+          </div>
+          <button class="reveal-secret" type="button">Satz zeigen</button>
+        </section>
+        <section class="panel rsvp">
+          <h2>Kommt ihr?</h2>
+          <div class="choices">
+            <button type="button" data-answer="yes">Wir kommen</button>
+            <button type="button" data-answer="no">Wir können nicht</button>
+          </div>
+          <div class="party" hidden>
+            <p class="ask">Wie viele Personen kommen? Jede mit Namen.</p>
+            <div class="stepper">
+              <button type="button" data-step="-1" aria-label="Eine Person weniger">−</button>
+              <b data-amount>1</b>
+              <button type="button" data-step="1" aria-label="Eine Person mehr">+</button>
+            </div>
+            <div class="names"></div>
+          </div>
+          <p class="tally" aria-live="polite"><b data-live-count></b><span data-live-label>Noch keine Antwort</span></p>
+          <p class="hint">Die Antwort bleibt auf diesem Gerät.</p>
+        </section>
+        <p class="coming">Noch keine Antwort.</p>
         <p class="note">Namen, Tag und Ort sind Beispiele.</p>
-      </footer>
-      <p class="nudge">Nach oben wischen <i></i></p>
+      </article>
     </div>
-
-  </main>
-  <script src="../invite.js?v=12"></script>
+</main>
+  <script src="../invite.js?v=14"></script>
 </body>
 </html>
